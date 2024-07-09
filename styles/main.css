@@ -1,107 +1,287 @@
 .logo_tamaño {
     width: 10vw;
 }
-.nav-link{
+
+.nav-link {
     font-size: 20px;
 }
-.carrucel_baner{
-    height: 35vh;
-    object-fit: cover;
-}
-.img_tamaño{
+
+
+.img_tamaño {
     width: 12vw;
 }
-.card{
-    width: 78vw;
-}
-.carousel-control-next-icon{
+
+.carousel-control-next-icon {
     background-color: black;
 }
-.carousel-control-prev-icon{
+
+.carousel-control-prev-icon {
     background-color: black;
 }
-.contenedor_carrucel_cartas{
+
+.contenedor_carrucel_cartas {
     width: 80vw;
 }
-.contenedor_contact{
+
+.card-text {
+    width: 15vw;
+}
+
+.contenedor_contact {
     display: flex;
     justify-content: center;
 }
-.contenedor_formulario_contact{
+
+.contenedor_formulario_contact {
     width: 60vw;
     margin: 5vw;
 }
-.boton_formulario_contacto{
+
+.boton_formulario_contacto {
     display: flex;
     justify-content: end;
 }
-.contenedor_contenedor_tabla{
-   display: flex;
-   justify-content: center;
-}
-.contenedor_tabla{
-    width: 90vw;
-    margin: 1vw;
-}
-.contenedor_info_cartas{
+
+.contenedor_contenedor_tabla {
     display: flex;
     justify-content: center;
 }
-.boton_carta_info{
+
+.contenedor_tabla {
+    width: 90vw;
+    margin: 1vw;
+}
+
+.contenedor_info_cartas {
+    display: flex;
+    justify-content: center;
+}
+
+.main {
+    overflow-x: hidden;
+    min-height: 74vh;
+}
+
+.borde {
+    border: solid 3px black;
+}
+
+
+.boton_carta_info {
     height: 12vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-main{
-    min-height: 71vh;
+
+.card_tamaño_ultima {
+    width: 20vw;
 }
+
+.border-top {
+    width: 15vw;
+}
+
+
+.card {
+    width: 20vw;
+}
+
+.tamaño_img_card {
+    height: 30vh;
+    object-fit: cover;
+}
+
 @media (min-width: 437px) and (max-width: 2000px) {
-    .img_tamaño{
+    .img_tamaño {
         width: 6vw;
     }
-    .contenedor_footer{
+
+    .contenedor_footer {
         display: flex;
         justify-content: space-between;
         margin-top: 1vh;
     }
-    .imagenes_redes{
+
+    .imagenes_redes {
         width: 25vw;
     }
-    .cohort{
+
+    .cohort {
         display: flex;
         justify-content: end;
 
     }
 }
+
 @media (min-width: 323px) and (max-width: 767px) {
     .logo_tamaño {
         width: 25vw;
     }
 }
+
 @media (min-width: 700px) and (max-width: 2000px) {
     .search_and_checkbox {
         display: flex;
     }
+
     .logo_tamaño {
         width: 18vw;
     }
-    .img_cartas{
+
+    .img_cartas {
         height: 60vh;
         object-fit: cover;
     }
-    .contenedor_carrucel_cartas{
+
+    .contenedor_carrucel_cartas {
         width: 55vw;
     }
-    .card-body{
+
+    .card-body {
         width: 52vw;
     }
-    .img_carta_info{
+
+    .img_carta_info {
         width: 40vw;
         height: 50vh;
         object-fit: cover;
     }
-    .c_cartas_info{
+
+    .c_cartas_info {
+        display: flex;
+        flex-direction: row;
+        margin: 4vw;
+    }
+}
+
+.logo_tamaño {
+    width: 10vw;
+}
+
+.nav-link {
+    font-size: 20px;
+}
+
+.carrucel_baner {
+    height: 45vh;
+    object-fit: cover;
+}
+
+.img_tamaño {
+    width: 12vw;
+}
+
+.carousel-control-next-icon {
+    background-color: black;
+}
+
+.carousel-control-prev-icon {
+    background-color: black;
+}
+
+.contenedor_carrucel_cartas {
+    width: 80vw;
+}
+
+.contenedor_contact {
+    display: flex;
+    justify-content: center;
+}
+
+.contenedor_formulario_contact {
+    width: 60vw;
+    margin: 5vw;
+}
+
+.boton_formulario_contacto {
+    display: flex;
+    justify-content: end;
+}
+
+.contenedor_contenedor_tabla {
+    display: flex;
+    justify-content: center;
+}
+
+.contenedor_tabla {
+    width: 90vw;
+    margin: 1vw;
+}
+
+.contenedor_info_cartas {
+    display: flex;
+    justify-content: center;
+}
+
+.boton_carta_info {
+    height: 12vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    min-height: 71vh;
+}
+
+@media (min-width: 437px) and (max-width: 2000px) {
+    .img_tamaño {
+        width: 6vw;
+    }
+
+    .contenedor_footer {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1vh;
+    }
+
+    .imagenes_redes {
+        width: 25vw;
+    }
+
+    .cohort {
+        display: flex;
+        justify-content: end;
+
+    }
+}
+
+@media (min-width: 323px) and (max-width: 767px) {
+    .logo_tamaño {
+        width: 25vw;
+    }
+}
+
+@media (min-width: 700px) and (max-width: 2000px) {
+    .search_and_checkbox {
+        display: flex;
+    }
+
+    .logo_tamaño {
+        width: 18vw;
+    }
+
+    .img_cartas {
+        height: 60vh;
+        object-fit: cover;
+    }
+
+    .contenedor_carrucel_cartas {
+        width: 55vw;
+    }
+
+    .card-body {
+        width: 52vw;
+    }
+
+    .img_carta_info {
+        width: 40vw;
+        height: 50vh;
+        object-fit: cover;
+    }
+
+    .c_cartas_info {
         display: flex;
         flex-direction: row;
         margin: 4vw;
