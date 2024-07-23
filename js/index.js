@@ -197,28 +197,59 @@ const data = {
 
 function createCard(event) {
     const card = document.createElement("div");
-    card.className = "card card_tamaño_ultima m-2";
+    card.className = "card card_tamaño_ultima col-md-4 m-1";
     card.innerHTML = `
-          <img src="${event.image}" class="card-img-top tamaño_img_card" alt="${event.name}" />
-          <div class="card-body">
+        <img src="${event.image}" class="card-img-top tamaño_img_card" alt="${event.name}" />
+        <div class="card-body">
             <h5 class="card-title">${event.name}</h5>
             <p class="card-text">${event.description}</p>
             <div class="border-top">
                 <p class="btn m-1">Price: ${event.price}</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="/pages/more_info.html?id=${event._id}" class="btn btn-primary">Go somewhere</a>
             </div>
-          </div>
-        `;
+        </div>
+    `;
     return card;
 }
 
-function displayEvents() {
+function displayEvents(events) {
     const allEventsContainer = document.getElementById("all-events");
-
-    data.events.forEach((event) => {
-        const card = createCard(event);
-        allEventsContainer.appendChild(card);
-    });
+    allEventsContainer.innerHTML = "";
+    if (events.length === 0) {
+        allEventsContainer.innerHTML = "<p class='error-message'>No events found matching your criteria.</p>";
+    } else {
+        events.forEach((event) => {
+            const card = createCard(event);
+            allEventsContainer.appendChild(card);
+        });
+    }
 }
 
-document.addEventListener("DOMContentLoaded", displayEvents);
+function filterEvents() {
+    const searchInput = document.getElementById("search-input");
+    const categoryCheckboxes = document.querySelectorAll("#categories input[type='checkbox']");
+    const searchTerm = searchInput.value.toLowerCase();
+    const selectedCategories = Array.from(categoryCheckboxes)
+        .filter(checkbox => checkbox.checked)
+        .map(checkbox => checkbox.value);
+
+    const filteredEvents = data.events.filter(event => {
+        const matchesSearch = event.name.toLowerCase().includes(searchTerm) || 
+                              event.description.toLowerCase().includes(searchTerm);
+        const matchesCategory = selectedCategories.length === 0 || 
+                                selectedCategories.includes(event.category);
+        return matchesSearch && matchesCategory;
+    });
+
+    displayEvents(filteredEvents);
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.getElementById("search-input");
+    const categoryCheckboxes = document.querySelectorAll("#categories input[type='checkbox']");
+
+    searchInput.addEventListener("input", filterEvents);
+    categoryCheckboxes.forEach(checkbox => checkbox.addEventListener("change", filterEvents));
+
+    displayEvents(data.events);  // Render initial events
+});

@@ -194,28 +194,60 @@ const data = {
         },
     ],
 };
+
 document.addEventListener("DOMContentLoaded", function () {
     const allEventsContainer = document.getElementById("all-events");
-    let eventsHTML = "";
+    const searchInput = document.getElementById("search-input");
+    const categoryCheckboxes = document.querySelectorAll("#categories input[type='checkbox']");
     const currentDate = new Date(data.currentDate);
-    data.events.forEach((event) => {
-        const eventDate = new Date(event.date);
-        if (eventDate >= currentDate) {
-            eventsHTML += `
-              <div class="card card_tamaño_ultima m-2 ">
-                <img src="${event.image}" class="card-img-top tamaño_img_card" alt="${event.name}" />
-                <div class="card-body">
-                  <h5 class="card-title">${event.name}</h5>
-                  <p class="card-text">${event.description}</p>
-                  <div class="border-top">
-                    <p class="btn m-1">Price: ${event.price}</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-              </div>
-            `;
-        }
-    });
 
-    allEventsContainer.innerHTML = eventsHTML;
+    function renderEvents(events) {
+        let eventsHTML = "";
+        if (events.length === 0) {
+            eventsHTML = "<p class='error-message'>No events found matching your criteria.</p>";
+        } else {
+            events.forEach((event) => {
+                const eventDate = new Date(event.date);
+                if (eventDate >= currentDate) {
+                    eventsHTML += `
+                      <div class="card card_tamaño_ultima col-md-4 m-1">
+                        <img src="${event.image}" class="card-img-top tamaño_img_card" alt="${event.name}" />
+                        <div class="card-body">
+                          <h5 class="card-title">${event.name}</h5>
+                          <p class="card-text">${event.description}</p>
+                          <div class="border-top">
+                            <p class="btn m-1">Price: ${event.price}</p>
+                            <a href="/pages/more_info.html?id=${event._id}" class="btn btn-primary">Go somewhere</a>
+                          </div>
+                        </div>
+                      </div>
+                    `;
+                }
+            });
+        }
+        allEventsContainer.innerHTML = eventsHTML;
+    }
+
+    function filterEvents() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const selectedCategories = Array.from(categoryCheckboxes)
+            .filter(checkbox => checkbox.checked)
+            .map(checkbox => checkbox.value);
+
+        const filteredEvents = data.events.filter(event => {
+            const eventDate = new Date(event.date);
+            const matchesSearch = event.name.toLowerCase().includes(searchTerm) ||
+                event.description.toLowerCase().includes(searchTerm);
+            const matchesCategory = selectedCategories.length === 0 ||
+                selectedCategories.includes(event.category);
+            return eventDate >= currentDate && matchesSearch && matchesCategory;
+        });
+
+        renderEvents(filteredEvents);
+    }
+
+    searchInput.addEventListener("input", filterEvents);
+    categoryCheckboxes.forEach(checkbox => checkbox.addEventListener("change", filterEvents));
+
+    renderEvents(data.events);  // Render initial events
 });

@@ -37,23 +37,18 @@
     </header>
     <main>
         <div id="carouselExampleIndicators" class="carousel slide">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
-            </div>
             <div class="carousel-inner">
                 <div class="carousel-item carrucel_baner active">
-                    <img src="/images/optional_banner_2.jpg" class="d-block w-100 carrucel_baner" alt="imagen baner events">
+                    <img src="/images/optional_banner_2.jpg" class="d-block w-100 img_banner carrucel_baner"
+                        alt="imagen baner events">
                 </div>
                 <div class="carousel-item">
-                    <img src="/images/optional_banner_4.jpg" class="d-block w-100 carrucel_baner" alt="imagen baner events">
+                    <img src="/images/optional_banner_4.jpg" class="d-block w-100 img_banner carrucel_baner"
+                        alt="imagen baner events">
                 </div>
                 <div class="carousel-item">
-                    <img src="/images/optional_banner_5.jpg" class="d-block w-100 carrucel_baner" alt=".imagen baner events">
+                    <img src="/images/optional_banner_5.jpg" class="d-block w-100 img_banner carrucel_baner"
+                        alt=".imagen baner events">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -67,44 +62,22 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-        <div class="container-fluid search_and_checkbox">
-            <div class="container-fluid search_and_checkbox">
-                <div class="form-check m-3">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1-1">
-                    <label class="form-check-label" for="defaultCheck1-1">
-                        Category 1
-                    </label>
+        <div class="container">
+            <h1 class="my-4 centrar">Past events </h1>
+            <div id="filters" class="m-4 d-flex justify-content-between">
+                <div id="categories">
+                    <label><input type="checkbox" value="Food Fair"> Food Fair</label>
+                    <label><input type="checkbox" value="Museum"> Museum</label>
+                    <label><input type="checkbox" value="Costume Party"> Costume Party</label>
+                    <label><input type="checkbox" value="Music Concert"> Music Concert</label>
+                    <label><input type="checkbox" value="Race"> Race</label>
+                    <label><input type="checkbox" value="Book Exchange"> Book Exchange</label>
+                    <label><input type="checkbox" value="Cinema"> Cinema</label>
                 </div>
-                <div class="form-check m-3">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1-2">
-                    <label class="form-check-label" for="defaultCheck1-2">
-                        Category 2
-                    </label>
-                </div>
-                <div class="form-check m-3">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1-3">
-                    <label class="form-check-label" for="defaultCheck1-3">
-                        Category 3
-                    </label>
-                </div>
-                <div class="form-check m-3">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1-4">
-                    <label class="form-check-label" for="defaultCheck1-4">
-                        Category 4
-                    </label>
-                </div>
+                <input type="text" id="search-input" placeholder="Search events">
             </div>
-            <div>
-                <form class="d-flex m-3" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-            </div>
+            <div id="all-events" class="row"></div>
         </div>
-        <div class="container mt-5">
-          <h1>Past events</h1>
-          <div id="all-events" class="d-flex flex-wrap"></div>
-      </div>
     </main>
     <footer>
         <div class="bg-dark-subtle border border-info-sutile border-2 contenedor_footer">
@@ -129,6 +102,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
         </script>
-        <script src="/js/past_event.js"></script>
+    <script src="/js/past_event.js"></script>
 </body>
+
 </html>
