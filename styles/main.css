@@ -3,26 +3,24 @@
     margin: 0;
     box-sizing: border-box;
 }
-.borde{
-    border: solid 3px black;
-}
-.bordee{
-    border: solid 3px red;
-}
-.centrar{
+
+.centrar {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.img_banner{
+
+.img_banner {
     height: 55vh;
     object-fit: cover;
 }
-.en_columna{
+
+.en_columna {
     display: flex;
     flex-direction: column;
 }
-.titulo{
+
+.titulo {
     display: flex;
     align-items: center;
 }
@@ -30,7 +28,9 @@
 .logo_tamaño {
     width: 10vw;
 }
-body, html {
+
+body,
+html {
     overflow-x: hidden;
     width: 100%;
 }
@@ -44,7 +44,7 @@ main {
     min-height: 71vh;
 }
 
-.centrar_titulo{
+.centrar_titulo {
     text-align: center;
 }
 
@@ -106,13 +106,6 @@ main {
     justify-content: center;
 }
 
-
-
-.borde {
-    border: solid 3px black;
-}
-
-
 .boton_carta_info {
     height: 12vh;
     display: flex;
@@ -128,33 +121,35 @@ main {
     width: 15vw;
 }
 
-
 .card {
     width: 20vw;
     border: solid rgba(84, 73, 73, 0.193) 2px;
 }
 
-.tamaño_card_horizontal{
+.tamaño_card_horizontal {
     width: 80vw;
     display: flex;
 }
-.card-title{
-    font-size:35px;
+
+.card-title {
+    font-size: 23px;
 }
+
 .subtitle {
-    font-size: 1.2em; /* Ajusta el tamaño según tus necesidades */
+    font-size: 1.2em;
     color: red;
-     /* Opcional: hace que el texto sea negrita */
 }
-.negrita{
+
+.negrita {
     font-weight: bold;
 }
 
-.tamaño_img_card_horizontal{
-    width: 25vw;
-    height: 40vh;
+.tamaño_img_card_horizontal {
+    width: 35vw;
+    height: 52vh;
     object-fit: cover;
 }
+
 .tamaño_img_card {
     height: 30vh;
     object-fit: cover;
@@ -222,4 +217,71 @@ main {
         flex-direction: row;
         margin: 4vw;
     }
+}
+
+
+/*>>>>>>>>>>>>>>>>>>>>>stats<<<<<<<<<<<<<<<<<<*/
+.centrar_titulo {
+    text-align: center;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+thead {
+    background-color: #4CAF50;
+    color: white;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: center;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+    background-color: #d1ecf1;
+    cursor: pointer;
+}
+
+th {
+    background-color: #5f5afda7;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+td {
+    color: #555;
+}
+
+#maxAttendanceEvent {
+    font-weight: bold;
+    color: #2c7a7b;
+}
+
+#minAttendanceEvent {
+    font-weight: bold;
+    color: #e53e3e;
+}
+
+#maxCapacityEvent {
+    font-weight: bold;
+    color: #3182ce;
+}
+.mainStats{
+    margin: 10px;
 }
