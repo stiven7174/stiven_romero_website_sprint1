@@ -6,7 +6,7 @@ export function displayEvents(events, container) {
         container.innerHTML = "<p class='error-message'>No events found matching your criteria.</p>";
     } else {
         events.forEach(event => {
-            const card = createCard(event);
+            let card = createCard(event);
             container.appendChild(card);
         });
     }

@@ -3,25 +3,24 @@ import { filterEvents } from './filters.js';
 import { displayEvents } from './render.js';
 
 document.addEventListener("DOMContentLoaded", async function () {
-    const searchInput = document.getElementById("search-input");
-    const categoryCheckboxes = document.querySelectorAll("#categories input[type='checkbox']");
-    const allEventsContainer = document.getElementById("all-events");
+    let searchInput = document.getElementById("search-input");
+    let categoryCheckboxes = document.querySelectorAll("#categories input[type='checkbox']");
+    let allEventsContainer = document.getElementById("all-events");
 
     try {
-        const data = await fetchEventsData();
-        const currentDate = new Date(data.currentDate);
+        let data = await fetchEventsData();
+        let currentDate = new Date(data.currentDate);
 
-        // Función con console.log para debugging
         function filterAndRenderEvents() {
-            const searchTerm = searchInput.value.toLowerCase();
-            const selectedCategories = Array.from(categoryCheckboxes)
+            let searchTerm = searchInput.value.toLowerCase();
+            let selectedCategories = Array.from(categoryCheckboxes)
                 .filter(checkbox => checkbox.checked)
                 .map(checkbox => checkbox.value);
 
             console.log("searchTerm:", searchTerm);
             console.log("selectedCategories:", selectedCategories);
 
-            const filteredEvents = filterEvents(
+            let filteredEvents = filterEvents(
                 data.events.filter(event => new Date(event.date) < currentDate),
                 searchTerm,
                 selectedCategories
@@ -35,7 +34,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         searchInput.addEventListener("input", filterAndRenderEvents);
         categoryCheckboxes.forEach(checkbox => checkbox.addEventListener("change", filterAndRenderEvents));
 
-        // Llamada inicial para renderizar los eventos al cargar la página
         filterAndRenderEvents();
     } catch (error) {
         console.error('Error fetching events:', error);

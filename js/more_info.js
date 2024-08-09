@@ -1,17 +1,16 @@
-// scripts/more_info.js
 import { fetchEventsData } from './api.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
     try {
-        const data = await fetchEventsData();
+        let data = await fetchEventsData();
 
-        const urlParams = new URLSearchParams(window.location.search);
-        const eventId = urlParams.get('id');
+        let urlParams = new URLSearchParams(window.location.search);
+        let eventId = urlParams.get('id');
 
-        const event = data.events.find(event => event._id.toString() === eventId);
+        let event = data.events.find(event => event._id.toString() === eventId);
 
         if (event) {
-            const eventCardContainer = document.getElementById('event-card-container');
+            let eventCardContainer = document.getElementById('event-card-container');
             eventCardContainer.innerHTML = `
                 <div class="card mb-3 tamaño_card_horizontal">
                     <div class="d-flex">
@@ -33,12 +32,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             `;
         } else {
             console.error('Event not found!');
-            const eventCardContainer = document.getElementById('event-card-container');
+            let eventCardContainer = document.getElementById('event-card-container');
             eventCardContainer.innerHTML = "<p class='error-message'>Event not found.</p>";
         }
     } catch (error) {
         console.error('Error fetching event:', error);
-        const eventCardContainer = document.getElementById('event-card-container');
+        let eventCardContainer = document.getElementById('event-card-container');
         eventCardContainer.innerHTML = "<p class='error-message'>There was an error fetching the event details.</p>";
     }
 });
